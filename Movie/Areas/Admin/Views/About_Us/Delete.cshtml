@@ -1,0 +1,17 @@
+﻿@model Movie.Models.About_Us
+
+@{
+    ViewBag.Title = "Xóa Giới Thiệu";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h3>Bạn có muốn xóa bản ghi này?</h3>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <span class="btn btn-secondary">@Html.ActionLink("Cancel", "Index")</span>
+    </div>
+}

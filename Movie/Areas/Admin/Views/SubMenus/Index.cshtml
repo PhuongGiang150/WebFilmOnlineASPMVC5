@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Movie.Models.SubMenu>
+
+@{
+    ViewBag.Title = "Danh Sách Menu Con";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="card-header py-1">
+    <h4 class="m-0 font-weight-bold text-primary text-center">Danh Sách Các SubMenu</h4>
+</div>
+<div class="card-body">
+    <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>
+                        Nội Dung
+                    </th>
+                    <th>
+                        MainMenu
+                    </th>
+                    <th>
+                        Thứ Tự
+                    </th>
+                    <th>
+                        Ngày Tạo
+                    </th>
+                    <th>
+                        Trạng Thái
+                    </th>
+                    <th>Tác Vụ</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Text)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MenuID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DisplayOrder)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreateDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Details","SubMenus" ,new { id=item.Id})" title="Chi Tiết"><i class="fas fa-info-circle" style="font-size: 1.6rem;color: rgb(17, 0, 255);"></i></a>
+                        <a href="@Url.Action("Edit","SubMenus" ,new { id=item.Id})" title="Sửa"><i class="fas fa-edit" style="font-size: 1.5rem; color: rgb(0, 255, 0);"></i></a>
+                        <a href="@Url.Action("Delete","SubMenus" ,new { id=item.Id})" title="Xóa"><i class="fas fa-trash-alt" style="font-size:1.5rem ; color: rgb(250, 115, 115);"></i></a>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+        <span class="btn btn-primary pt-2">
+            @Html.ActionLink("Thêm SubMenu", "Create")
+        </span>
+    </div>
+</div>

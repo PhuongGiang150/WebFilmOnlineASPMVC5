@@ -1,0 +1,99 @@
+﻿
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+    <!-- Sidebar - Brand -->
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="@Url.Action("Index","Home","Admin")">
+        <div class="sidebar-brand-icon rotate-n-15">
+            <i class="fas fa-user-cog"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">ADMIN</div>
+    </a>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0">
+
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item">
+        <a class="nav-link" href="@Url.Action("Index","Home","Admin")">
+            <i class="fas fa-tachometer-alt"></i>
+            <span>Bảng Điều Khiển</span>
+        </a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Giao diện
+    </div>
+
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Cài đặt</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="@Url.Action("Index","Menus","Admin")">Menu</a>
+                <a class="collapse-item" href="@Url.Action("Index","Footers","Admin")">Footer</a>
+                <a class="collapse-item" href="@Url.Action("Index","SubMenus","Admin")">SubMenu</a>
+            </div>
+        </div>
+    </li>
+
+    <!-- Nav Item - Utilities Collapse Menu -->
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Quản lý
+    </div>
+    <li class="nav-item">
+        <a class="nav-link" href="@Url.Action("Index","Films","Admin")">
+            <i class="fas fa-film"></i>
+            <span>Phim</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="@Url.Action("Index","Feedbacks","Admin")">
+            <i class="fas fa-comments"></i>
+            <span>Phản hồi</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="@Url.Action("Index","Contacts","Admin")">
+            <i class="fas fa-address-card"></i>
+            <span>Liên Hệ</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="@Url.Action("Index","About_Us","Admin")">
+            <i class="fas fa-address-card"></i>
+            <span>Giới Thiệu</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+            <i class="fas fa-users"></i>
+            <span>Tài Khoản</span>
+        </a>
+        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="@Url.Action("Index","Accounts","Admin")"><i class="fas fa-user-plus"></i> &nbsp; Người Dùng</a>
+                <a class="collapse-item" href="@Url.Action("Index","Accounts","Admin")"><i class="fas fa-list-alt"></i>&nbsp; Quản Trị</a>
+            </div>
+        </div>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block">
+
+    <!-- Sidebar Toggler (Sidebar) -->
+    <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div>
+
+</ul>

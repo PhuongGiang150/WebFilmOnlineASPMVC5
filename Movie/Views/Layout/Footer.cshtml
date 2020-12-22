@@ -1,0 +1,12 @@
+﻿@model IEnumerable<Movie.Models.Footer>
+<div class="col-md-7 w3ls_footer_grid1_right">
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>
+                <a href="@item.Link" target="@item.Metatitle">@item.Text</a>
+            </li>
+        }
+    </ul>
+</div>
+

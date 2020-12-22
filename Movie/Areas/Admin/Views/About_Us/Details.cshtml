@@ -1,0 +1,86 @@
+﻿@model Movie.Models.About_Us
+
+@{
+    ViewBag.Title = "Chi Tiết Giới Thiệu";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="card-header py-1">
+    <h4 class="m-0 font-weight-bold text-primary text-center">Giới Thiệu Chi Tiết</h4>
+</div>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Map)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Map)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Socical)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Socical)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateBy)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <span class="btn btn-primary my-2">
+        @Html.ActionLink("Thay Đổi", "Edit", new { id = Model.Id })
+    </span>
+    <span class="btn btn-secondary m-2">
+        @Html.ActionLink("Trở Lại", "Index")
+    </span>
+</p>
