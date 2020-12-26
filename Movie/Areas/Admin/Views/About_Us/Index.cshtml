@@ -1,5 +1,7 @@
 ﻿@model IEnumerable<Movie.Models.About_Us>
-
+@{
+    var admin = Session["admin"] as Movie.Models.Account;
+}
 @{
     ViewBag.Title = "Liên Hệ";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
@@ -24,31 +26,40 @@
                     <th>
                         Ngày Tạo
                     </th>
+                    <th>
+                        Người Tạo
+                    </th>
                     <th>Tác Vụ</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model)
                 {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Address)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Phone)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Status)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.CreateDate)
-                        </td>
-                        <td>
-                            <a href="@Url.Action("Details","About_Us" ,new { id=item.Id})" title="Chi Tiết"><i class="fas fa-info-circle" style="font-size: 1.6rem;color: rgb(17, 0, 255);"></i></a>
-                            <a href="@Url.Action("Edit","About_Us" ,new { id=item.Id})" title="Sửa"><i class="fas fa-edit" style="font-size: 1.5rem; color: rgb(0, 255, 0);"></i></a>
-                            <a href="@Url.Action("Delete","About_Us" ,new { id=item.Id})" title="Xóa"><i class="fas fa-trash-alt" style="font-size:1.5rem ; color: rgb(250, 115, 115);"></i></a>
-                        </td>
-                    </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Phone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreateDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreateBy)
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Details","About_Us" ,new { id=item.Id})" title="Chi Tiết"><i class="fas fa-info-circle" style="font-size: 1.6rem;color: rgb(17, 0, 255);"></i></a>
+                        <a href="@Url.Action("Edit","About_Us" ,new { id=item.Id})" title="Sửa" class="mx-2"><i class="fas fa-edit" style="font-size: 1.5rem; color: rgb(0, 255, 0);"></i></a>
+                        @if (admin.Class == true)
+                        {
+                            <a href="@Url.Action("Delete", "About_Us", new { id = item.Id })" title="Xóa"><i class="fas fa-trash-alt" style="font-size:1.5rem ; color: rgb(250, 115, 115);"></i></a>
+                        }
+                    </td>
+                </tr>
                 }
             </tbody>
         </table>

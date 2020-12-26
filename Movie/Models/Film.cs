@@ -11,7 +11,7 @@ namespace Movie.Models
     {
         public int Id { get; set; }
 
-        [StringLength(50)]
+        [StringLength(70)]
         public string Name { get; set; }
         [StringLength(70)]
         public string Metatile { get; set; }
@@ -56,5 +56,6 @@ namespace Movie.Models
 
         [StringLength(50)]
         public string CreateBy { get; set; }
+    
     }
 }

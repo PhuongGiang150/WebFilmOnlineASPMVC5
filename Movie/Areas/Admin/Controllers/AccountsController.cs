@@ -10,16 +10,21 @@ using Movie.Models;
 
 namespace Movie.Areas.Admin.Controllers
 {
-    public class AccountsController : Controller
+    public class AccountsController : BaseController
     {
         private MovieDbContext db = new MovieDbContext();
 
         // GET: Admin/Accounts
+        //TK Admin
         public ActionResult Index()
         {
-            return View(db.Accounts.ToList());
+            return View(db.Accounts.Where(a=>a.Class !=null).ToList());
         }
-
+        //Tk Người Dùng
+        public ActionResult IndexUser()
+        {
+            return View(db.Accounts.Where(a => a.Class == null).ToList());
+        }
         // GET: Admin/Accounts/Details/5
         public ActionResult Details(int? id)
         {
@@ -50,9 +55,22 @@ namespace Movie.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Accounts.Add(account);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (account.CreateDate == null)
+                {
+                    account.CreateDate = DateTime.Now;
+                }
+                var MaHMD5 = Common.GetMD5(account.Password);
+                account.Password = MaHMD5;
+                if (db.Accounts.Any(x => x.Email == account.Email))
+                {
+                    ModelState.AddModelError("TrungEmail", "Email đã tồn tại");
+                }
+                else
+                {
+                    db.Accounts.Add(account);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
 
             return View(account);
@@ -82,6 +100,13 @@ namespace Movie.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+
+                if (account.CreateDate == null)
+                {
+                    account.CreateDate = DateTime.Now;
+                }
+                var MaHMD5 = Common.GetMD5(account.Password);
+                account.Password = MaHMD5;
                 db.Entry(account).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

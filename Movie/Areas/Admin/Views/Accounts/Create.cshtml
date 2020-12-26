@@ -1,10 +1,25 @@
 ﻿@model Movie.Models.Account
-
+@{
+    var admin = Session["admin"] as Movie.Models.Account;
+}
 @{
     ViewBag.Title = "Sửa Tài Khoản";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
-
+@section jsFooter{
+    <script>
+        $('#btnSelectImage').on('click', function (e) {
+            e.preventDefault();
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (url) {
+                $('#txtImage').val(url);
+            };
+            finder.popup();
+        })
+        var editor = CKEDITOR.replace('txtContent', {
+            customConfig: '/assets/admin/js/plugins/ckeditor/config.js',
+        });</script>
+}
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -17,11 +32,12 @@
         </div>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
+        @Html.ValidationMessage("TrungEmail", new { @class = "text-danger text-center" })
         <div class="form-group row">
             <label class="control-label col-md-2 col-form-label">Avartar</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Avartar, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextBoxFor(model => model.Avartar, new { htmlAttributes = new { @class = "form-control" }, id = "txtImage" })
+                <a id="btnSelectImage">Chọn ảnh</a>
                 @Html.ValidationMessageFor(model => model.Avartar, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -45,7 +61,7 @@
         <div class="form-group row">
             <label class="control-label col-md-2 col-form-label">Mật Khẩu</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.PasswordFor(model => model.Password,  new { @class = "form-control" } )
                 @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -78,18 +94,18 @@
             </div>
         </div>
 
-        <div class="form-group row">
+        @*<div class="form-group row">
             <label class="control-label col-md-2 col-form-label">Ngày Tạo</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.CreateDate, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.CreateDate, "", new { @class = "text-danger" })
             </div>
-        </div>
+        </div>*@
 
         <div class="form-group row">
             <label class="control-label col-md-2 col-form-label">Người Tạo</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CreateBy, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextBoxFor(model => model.CreateBy,new {@class = "form-control" , @Value = @admin.Name })
                 @Html.ValidationMessageFor(model => model.CreateBy, "", new { @class = "text-danger" })
             </div>
         </div>

@@ -10,7 +10,7 @@ using Movie.Models;
 
 namespace Movie.Areas.Admin.Controllers
 {
-    public class FeedbacksController : Controller
+    public class FeedbacksController : BaseController
     {
         private MovieDbContext db = new MovieDbContext();
 

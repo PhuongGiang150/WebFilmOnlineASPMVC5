@@ -1,8 +1,32 @@
 ﻿@model Movie.Models.Film
-
+@{
+    var admin = Session["admin"] as Movie.Models.Account;
+}
 @{
     ViewBag.Title = "Sửa Phim";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@section jsFooter{
+    <script>
+        $('#btnSelectImage').on('click', function (e) {
+            e.preventDefault();
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (url) {
+                $('#txtImage').val(url);
+            };
+            finder.popup();
+        })
+        $('#btnSelectImage1').on('click', function (e) {
+            e.preventDefault();
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (url) {
+                $('#txtImage1').val(url);
+            };
+            finder.popup();
+        })
+        var editor = CKEDITOR.replace('txtContent', {
+            customConfig: '/assets/admin/js/plugins/ckeditor/config.js',
+        });</script>
 }
 
 @using (Html.BeginForm())
@@ -20,7 +44,7 @@
         @Html.HiddenFor(model => model.Id)
 
         <div class="form-group row">
-            <label class = "control-label col-md-2 col-form-label" >Tên Phim</label>
+            <label class="control-label col-md-2 col-form-label">Tên Phim</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
@@ -38,7 +62,8 @@
         <div class="form-group row">
             <label class="control-label col-md-2 col-form-label">Avartar</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Avartar, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextBoxFor(model => model.Avartar, new { htmlAttributes = new { @class = "form-control" }, id = "txtImage" })
+                <a id="btnSelectImage">Chọn Ảnh</a>
                 @Html.ValidationMessageFor(model => model.Avartar, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -46,7 +71,8 @@
         <div class="form-group row">
             <label class="control-label col-md-2 col-form-label">Hình Nền</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Background, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextBoxFor(model => model.Background, new { htmlAttributes = new { @class = "form-control" }, id = "txtImage1" })
+                <a id="btnSelectImage1">Chọn Ảnh</a>
                 @Html.ValidationMessageFor(model => model.Background, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -158,21 +184,12 @@
         </div>
 
         <div class="form-group row">
-            <label class="control-label col-md-2 col-form-label">Ngày Tạo</label>
+            <label class="control-label col-md-2 col-form-label">Người Sửa</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CreateDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextBoxFor(model => model.CreateBy, new { @class = "form-control", @Value = @admin.Name })
                 @Html.ValidationMessageFor(model => model.CreateDate, "", new { @class = "text-danger" })
             </div>
         </div>
-
-        <div class="form-group row">
-            <label class="control-label col-md-2 col-form-label">Người Tạo</label>
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CreateBy, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CreateBy, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
         <div class="form-group row">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Thay Đổi" class="btn btn-primary" />

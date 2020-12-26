@@ -1,5 +1,7 @@
 ﻿@model IEnumerable<Movie.Models.Feedback>
-
+@{
+    var admin = Session["admin"] as Movie.Models.Account;
+}
 @{
     ViewBag.Title = "Danh Sách Phản Hồi";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
@@ -46,8 +48,11 @@
                         </td>
                         <td>
                             <a href="@Url.Action("Details","Feedbacks" ,new { id=item.Id})" title="Chi Tiết"><i class="fas fa-info-circle" style="font-size: 1.6rem;color: rgb(17, 0, 255);"></i></a>
-                            <a href="@Url.Action("Edit","Feedbacks" ,new { id=item.Id})" title="Sửa"><i class="fas fa-edit" style="font-size: 1.5rem; color: rgb(0, 255, 0);"></i></a>
-                            <a href="@Url.Action("Delete","Feedbacks" ,new { id=item.Id})" title="Xóa"><i class="fas fa-trash-alt" style="font-size:1.5rem ; color: rgb(250, 115, 115);"></i></a>
+                            <a href="@Url.Action("Edit","Feedbacks" ,new { id=item.Id})" title="Sửa" class="mx-2"><i class="fas fa-edit" style="font-size: 1.5rem; color: rgb(0, 255, 0);"></i></a>
+                            @if (admin.Class == true)
+                            {
+                                <a href="@Url.Action("Delete", "Feedbacks", new { id = item.Id })" title="Xóa"><i class="fas fa-trash-alt" style="font-size:1.5rem ; color: rgb(250, 115, 115);"></i></a>
+                            }
                         </td>
                     </tr>
                 }

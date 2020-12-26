@@ -10,7 +10,7 @@ using Movie.Models;
 
 namespace Movie.Areas.Admin.Controllers
 {
-    public class FootersController : Controller
+    public class FootersController : BaseController
     {
         private MovieDbContext db = new MovieDbContext();
 
@@ -50,6 +50,10 @@ namespace Movie.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (footer.CreateDate == null)
+                {
+                    footer.CreateDate = DateTime.Now;
+                }
                 db.Footers.Add(footer);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -82,6 +86,10 @@ namespace Movie.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (footer.CreateDate == null)
+                {
+                    footer.CreateDate = DateTime.Now;
+                }
                 db.Entry(footer).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

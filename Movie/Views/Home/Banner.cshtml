@@ -4,7 +4,7 @@
     @foreach (var item in Model)
     {
         <div class="col-md-2 w3l-movie-gride-agile">
-            <a href="single.html" class="hvr-shutter-out-horizontal">
+            <a href="@Url.Action("ViewFilm","Films" ,new { id=item.Id})" class="hvr-shutter-out-horizontal">
                 <img src="@item.Avartar" title="album-name" class="img-responsive" alt=" " />
                 <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
             </a>

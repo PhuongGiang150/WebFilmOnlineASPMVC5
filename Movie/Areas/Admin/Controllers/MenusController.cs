@@ -10,7 +10,7 @@ using Movie.Models;
 
 namespace Movie.Areas.Admin.Controllers
 {
-    public class MenusController : Controller
+    public class MenusController : BaseController
     {
         private MovieDbContext db = new MovieDbContext();
 
@@ -50,6 +50,10 @@ namespace Movie.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (menu.CreateDate == null)
+                {
+                    menu.CreateDate = DateTime.Now;
+                }
                 db.Menus.Add(menu);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -82,6 +86,11 @@ namespace Movie.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+
+                if (menu.CreateDate == null)
+                {
+                    menu.CreateDate = DateTime.Now;
+                }
                 db.Entry(menu).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

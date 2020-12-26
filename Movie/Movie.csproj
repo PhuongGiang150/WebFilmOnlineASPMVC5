@@ -2559,6 +2559,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\About_UsController.cs" />
     <Compile Include="Areas\Admin\Controllers\AccountsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\ContactsController.cs" />
     <Compile Include="Areas\Admin\Controllers\FeedbacksController.cs" />
     <Compile Include="Areas\Admin\Controllers\FilmsController.cs" />
@@ -2634,11 +2635,6 @@
     <Content Include="Assets\Site\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Assets\Site\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Assets\Site\fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="Areas\Admin\Views\Films\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\Films\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\Films\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\Films\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Films\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Assets\Admin\js\Plugins\ckfinder\plugins\fileeditor\codemirror\LICENSE" />
     <Content Include="Assets\Admin\js\Plugins\ckfinder\skins\bootstrap\assets\fonts\glyphicons-halflings-regular.eot" />
@@ -2821,6 +2817,12 @@
     <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Menu.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_MenuTop.cshtml" />
+    <Content Include="Areas\Admin\Views\Films\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Films\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Films\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Films\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Films\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Accounts\IndexUser.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LayoutPageSite.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -2828,6 +2830,7 @@
     <Content Include="Views\Layout\Menu.cshtml" />
     <Content Include="Views\Layout\Footer.cshtml" />
     <Content Include="Views\ViewFilm\Index.cshtml" />
+    <Content Include="Views\ViewFilm\ViewFilm.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -2837,6 +2840,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Views\Base\" />
     <Folder Include="Areas\Admin\Views\Logout\" />
     <Folder Include="Images\" />
   </ItemGroup>

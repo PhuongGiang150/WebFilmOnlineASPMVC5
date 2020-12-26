@@ -31,10 +31,6 @@ namespace Movie.Models
                 .Property(e => e.Email)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<About_Us>()
-                .Property(e => e.CreateBy)
-                .IsUnicode(false);
-
             modelBuilder.Entity<Account>()
                 .Property(e => e.Avartar)
                 .IsUnicode(false);
@@ -49,10 +45,6 @@ namespace Movie.Models
 
             modelBuilder.Entity<Account>()
                 .Property(e => e.Phone)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Account>()
-                .Property(e => e.CreateBy)
                 .IsUnicode(false);
 
             modelBuilder.Entity<Contact>()
@@ -79,13 +71,9 @@ namespace Movie.Models
                 .Property(e => e.Google)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Contact>()
-                .Property(e => e.CreateBy)
-                .IsUnicode(false);
-
             modelBuilder.Entity<Feedback>()
-                .Property(e => e.Avartar)
-                .IsUnicode(false);
+     .Property(e => e.Avartar)
+     .IsUnicode(false);
 
             modelBuilder.Entity<Feedback>()
                 .Property(e => e.Email)
@@ -96,10 +84,6 @@ namespace Movie.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<Film>()
-                .Property(e => e.Name)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Film>()
                 .Property(e => e.Avartar)
                 .IsUnicode(false);
 
@@ -107,32 +91,16 @@ namespace Movie.Models
                 .Property(e => e.Quality)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Film>()
-                .Property(e => e.CreateBy)
-                .IsUnicode(false);
-
             modelBuilder.Entity<Footer>()
                 .Property(e => e.Metatitle)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Footer>()
-                .Property(e => e.CreateBy)
                 .IsUnicode(false);
 
             modelBuilder.Entity<Menu>()
                 .Property(e => e.Metatite)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Menu>()
-                .Property(e => e.CreateBy)
-                .IsUnicode(false);
-
             modelBuilder.Entity<SubMenu>()
                 .Property(e => e.Metatitle)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<SubMenu>()
-                .Property(e => e.CreateBy)
                 .IsUnicode(false);
         }
     }
