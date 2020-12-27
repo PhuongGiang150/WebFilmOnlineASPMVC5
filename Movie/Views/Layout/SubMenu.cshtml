@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Movie.Models.SubMenu>
+@if (ViewBag.Count > 0)
+{
+    <ul class="dropdown-menu multi-column columns-3">
+        <li>
+            <div class="col-sm-4">
+                <ul class="multi-column-dropdown">
+                    @foreach (var item in Model)
+                    {
+                    <li><a href="genres.html">@item.Text</a></li>
+                    }
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+        </li>
+    </ul>
+}

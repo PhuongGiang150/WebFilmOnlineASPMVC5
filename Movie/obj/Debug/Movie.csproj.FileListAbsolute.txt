@@ -81,3 +81,4 @@ E:\ProjectMovieOnline\Movie\Movie\bin\CKFinder.pdb
 E:\ProjectMovieOnline\Movie\Movie\bin\CKFinder_FileEditor.pdb
 E:\ProjectMovieOnline\Movie\Movie\bin\CKFinder_ImageResize.pdb
 E:\ProjectMovieOnline\Movie\Movie\bin\CKFinder_Watermark.pdb
+E:\ProjectMovieOnline\Movie\Movie\obj\Debug\Movie.csprojAssemblyReference.cache

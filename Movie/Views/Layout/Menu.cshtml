@@ -1,7 +1,4 @@
-﻿@*@{
-    var submenu = (List<Movie.Models.Film>)ViewBag.SubMenu;
-}*@
-<div class="movies_nav">
+﻿<div class="movies_nav">
     <div class="container">
         <nav class="navbar navbar-default">
             <div class="navbar-header navbar-left">
@@ -19,8 +16,12 @@
                         <li class="active"><a href="index.html">Trang Chủ</a></li>
                         @foreach (var item in Model)
                         {
-                            <li class=""><a href="@item.Link" target="@item.Metatite">@item.Text</a></li>
-                        }
+
+                    <li class="dropdown">
+                        <a href="@Url.Action("Index","Category", new { category = item.Link})" target="@item.Metatite">@item.Text</a>
+                        @Html.Action("SubMenu", "Layout", new { idMenu = item.Id })
+                    </li>
+                            }
                     </ul>
                 </nav>
             </div>

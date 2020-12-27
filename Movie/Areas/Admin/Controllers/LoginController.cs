@@ -27,7 +27,7 @@ namespace Movie.Areas.Admin.Controllers
             string email = Request["email"];
             string password = Request["password"];
             var f_password = Common.GetMD5(password);
-            var data = db.Accounts.Where(s => s.Email.Equals(email) && s.Password.Equals(f_password) && s.Class != null).ToList();
+            var data = db.Accounts.Where(s => s.Email.Equals(email) && s.Password.Equals(f_password) && s.Class != null && s.Status != false).ToList();
 
             if (data.Count() > 0)
             {

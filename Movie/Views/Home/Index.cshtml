@@ -52,7 +52,7 @@
                             </a>
                             <div class="mid-1 agileits_w3layouts_mid_1_home">
                                 <div class="w3l-movie-text">
-                                    <h6><a href="single.html">@item.Name</a></h6>
+                                    <h6><a href="@Url.Action("ViewFilm","ViewFilm" ,new { id=item.Id})">@item.Name</a></h6>
                                 </div>
                                 <div class="mid-2 agile_mid_2_home">
                                     <p>@item.Year</p>
@@ -106,13 +106,13 @@
                         @foreach (var item in featured)
                         {
                             <div class="col-md-2 w3l-movie-gride-agile">
-                                <a href="single.html" class="hvr-shutter-out-horizontal">
+                                <a href="@Url.Action("ViewFilm","ViewFilm" ,new { id=item.Id})" class="hvr-shutter-out-horizontal">
                                     <img src="@item.Avartar" title="album-name" class="img-responsive" alt=" " />
                                     <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
                                 </a>
                                 <div class="mid-1 agileits_w3layouts_mid_1_home">
                                     <div class="w3l-movie-text">
-                                        <h6><a href="single.html">@item.Name</a></h6>
+                                        <h6><a href="@Url.Action("ViewFilm","ViewFilm" ,new { id=item.Id})">@item.Name</a></h6>
                                     </div>
                                     <div class="mid-2 agile_mid_2_home">
                                         <p>@item.Year</p>
@@ -140,13 +140,13 @@
                     @foreach (var item in topview)
                     {
                         <div class="col-md-2 w3l-movie-gride-agile">
-                            <a href="single.html" class="hvr-shutter-out-horizontal">
+                            <a href="@Url.Action("ViewFilm","ViewFilm" ,new { id=item.Id})" class="hvr-shutter-out-horizontal">
                                 <img src="@item.Avartar" title="album-name" class="img-responsive" alt=" " />
                                 <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
                             </a>
                             <div class="mid-1 agileits_w3layouts_mid_1_home">
                                 <div class="w3l-movie-text">
-                                    <h6><a href="single.html">@item.Name</a></h6>
+                                    <h6><a href="@Url.Action("ViewFilm","ViewFilm" ,new { id=item.Id})">@item.Name</a></h6>
                                 </div>
                                 <div class="mid-2 agile_mid_2_home">
                                     <p>@item.Year</p>
@@ -173,13 +173,13 @@
                     @foreach (var item in topratting)
                     {
                         <div class="col-md-2 w3l-movie-gride-agile">
-                            <a href="single.html" class="hvr-shutter-out-horizontal">
+                            <a href="@Url.Action("ViewFilm","ViewFilm" ,new { id=item.Id})" class="hvr-shutter-out-horizontal">
                                 <img src="@item.Avartar" title="album-name" class="img-responsive" alt=" " />
                                 <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
                             </a>
                             <div class="mid-1 agileits_w3layouts_mid_1_home">
                                 <div class="w3l-movie-text">
-                                    <h6><a href="single.html">@item.Name</a></h6>
+                                    <h6><a href="@Url.Action("ViewFilm","ViewFilm" ,new { id=item.Id})">@item.Name</a></h6>
                                 </div>
                                 <div class="mid-2 agile_mid_2_home">
                                     <p>@item.Year</p>
@@ -206,13 +206,13 @@
                     @foreach (var item in newupdate)
                     {
                         <div class="col-md-2 w3l-movie-gride-agile">
-                            <a href="single.html" class="hvr-shutter-out-horizontal">
+                            <a href="@Url.Action("ViewFilm","ViewFilm" ,new { id=item.Id})" class="hvr-shutter-out-horizontal">
                                 <img src="@item.Avartar" title="album-name" class="img-responsive" alt=" " />
                                 <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
                             </a>
                             <div class="mid-1 agileits_w3layouts_mid_1_home">
                                 <div class="w3l-movie-text">
-                                    <h6><a href="single.html">@item.Name</a></h6>
+                                    <h6><a href="@Url.Action("ViewFilm","ViewFilm" ,new { id=item.Id})">@item.Name</a></h6>
                                 </div>
                                 <div class="mid-2 agile_mid_2_home">
                                     <p>@item.Year</p>
@@ -284,9 +284,9 @@
             
                                 <div class="clearfix"> </div>
                                 <div class="agileinfo_flexislider_grids">
-                                    @{
+                                    @*@{
                                         Html.RenderAction("Banner", "Home");
-                                    }
+                                    }*@
                                     <div class="clearfix"> </div>
                                 </div>
                             </div>

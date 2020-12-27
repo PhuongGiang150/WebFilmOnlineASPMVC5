@@ -2569,6 +2569,7 @@
     <Compile Include="Areas\Admin\Controllers\LogoutController.cs" />
     <Compile Include="Areas\Admin\Controllers\MenusController.cs" />
     <Compile Include="Areas\Admin\Controllers\SubMenusController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LayoutController.cs" />
     <Compile Include="Controllers\ViewFilmController.cs" />
@@ -2831,6 +2832,11 @@
     <Content Include="Views\Layout\Footer.cshtml" />
     <Content Include="Views\ViewFilm\Index.cshtml" />
     <Content Include="Views\ViewFilm\ViewFilm.cshtml" />
+    <Content Include="Views\Home\CreateUser.cshtml" />
+    <Content Include="Views\ViewFilm\Comment.cshtml" />
+    <Content Include="Views\Category\PhimMoi.cshtml" />
+    <Content Include="Views\Category\Index.cshtml" />
+    <Content Include="Views\Layout\SubMenu.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -2840,7 +2846,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Areas\Admin\Views\Base\" />
     <Folder Include="Areas\Admin\Views\Logout\" />
     <Folder Include="Images\" />
   </ItemGroup>

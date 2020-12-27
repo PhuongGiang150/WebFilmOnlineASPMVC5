@@ -1,0 +1,29 @@
+﻿@model Movie.Models.Account
+
+<div class="form">
+    @using (Html.BeginForm("CreateUser", "Home", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <h3>Tạo Tài Khoản</h3>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.ValidationMessage("TrungEmail", new { @class = "text-danger text-center" })
+        <form action="#" method="post">
+            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @placeholder = "Name" } })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+
+            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @placeholder = "Email Address" } })
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+
+            @Html.PasswordFor(model => model.Password, new { @placeholder = "PassWord" })
+            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+
+            @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @placeholder = "Số Điện Thoại" } })
+            @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+            @*<input type="text" name="Username" placeholder="Name" required="">
+                <input type="email" name="Email" placeholder="Email Address" required="">
+                <input type="password" name="Password" placeholder="Password" required="">
+                <input type="text" name="Phone" placeholder="Phone Number" required="">*@
+            <input type="submit" value="Đăng Kí">
+        </form>
+    }
+</div>

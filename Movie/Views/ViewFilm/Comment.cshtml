@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Movie.Models.Feedback>
+<div class="all-comments">
+    <div class="all-comments-info">
+        <a href="#">Comments</a>
+        <div class="agile-info-wthree-box">
+            <form>
+                <input type="text" placeholder="Name" required="">
+                <input type="text" placeholder="Email" required="">
+                <input type="text" placeholder="Phone" required="">
+                <textarea placeholder="Message" required=""></textarea>
+                <input type="submit" value="SEND">
+                <div class="clearfix"> </div>
+            </form>
+        </div>
+    </div>
+    <div class="media-grids">
+        @foreach (var item in Model)
+        {
+            <div class="media">
+                <h5>@item.Name</h5>
+                <div class="media-left">
+                    <a href="#">
+                        <img style="height:80px" src="@item.Avartar" title="One movies" alt="Người comment" />
+                    </a>
+                </div>
+                <div class="media-body">
+                    <p>@item.Message</p>
+                    <span>View all posts by :<a href="#"> Admin </a></span>
+                </div>
+            </div>
+        }
+    </div>
+</div>
